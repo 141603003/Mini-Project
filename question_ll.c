@@ -327,12 +327,12 @@ void readQB(char* file_name) {
 							
 				}
 				j = 0;
-			/*	do {
+				do {
 					fread(&ch, sizeof(char), 1, fp);/*reading ans till '\0'*/
-			/*		str[j] = ch;
+					str[j] = ch;
 					j++;
 				}while(ch != '\0');
-				printf("\n%s\n", str);	*/			
+				/*printf("\n%s\n", str);	*/			
 				break;
 			case _NAQ:
 				fread(&naq, sizeof(NAQ), 1, fp);
