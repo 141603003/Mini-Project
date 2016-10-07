@@ -80,7 +80,7 @@ int main() {
 				printheader("Quizzy");
 				printmiddle("Creation of Quiz");
 				file = getfilename();
-				readQBQuiz(&quizset, file);/*reads the qb and stores in quiz*/
+				readQBQuiz(&quizset, file);/*reads the question bank and stores in quiz*/
 				if(quizset.total_marks != 0){
 					printheader("Quizzy");
 					printf("Your Quiz :\n");
@@ -96,6 +96,7 @@ int main() {
 						strcat(filename, ".quiz");
 						strcpy(filename, strcat(dirqz, filename));
 						storeQB(quiz, filename, 1);
+						storeQuizInfo()
 					}
 				}
 				break;
