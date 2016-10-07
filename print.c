@@ -11,7 +11,7 @@ int maxwidth;
 int filefound;
 /*creates question bank directory if not available*/
 void initialization() {
-	int found = 0;
+	int foundqb = 0, foundqz = 0;/*boolean for found*/
 	DIR *dp = NULL;
     	struct dirent *dptr = NULL;
 	if((dp = opendir("./")) == NULL) {
@@ -19,15 +19,21 @@ void initialization() {
 		exit(1);
    	}
 	while((dptr = readdir(dp)) != NULL ) {
-		printf("%s\n", dptr->d_name);
-   		if(!strcmp("QuestionBank", dptr->d_name)) {
-			found = 1;
-			break;
+		//printf("%s\n", dptr->d_name);
+   		if(!strcmp("QuestionBank", dptr->d_name) && (foundqb == 0)) {
+			foundqb = 1;
 		}
+		if(!strcmp("Quiz", dptr->d_name) && (foundqz == 0)) {
+			foundqz = 1;
+		}
+		
         }
 	closedir(dp);
-	if(!found) {
+	if(!foundqb) {
 		mkdir("QuestionBank",S_IRWXU|S_IRWXG|S_IRWXO);
+	}
+	if(!foundqz) {
+		mkdir("Quiz",S_IRWXU|S_IRWXG|S_IRWXO);
 	}
 	
 }

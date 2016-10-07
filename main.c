@@ -7,7 +7,7 @@
 
 int main() {
 	int i = 1, choice, select;
-	char filename[20], *file, dir[100], more;
+	char filename[20], *file, dirqb[100], dirqz[100], more;
 	int id = 0;
 	char ch;
 	QuestionBank qb;
@@ -27,7 +27,8 @@ int main() {
 	while(1) {
 		select = printmenu(choice);
 		init(&qb);
-		strcpy(dir, "./QuestionBank/");
+		strcpy(dirqb, "./QuestionBank/");
+		strcpy(dirqz, "./Quiz/");
 		switch(select) {
 			case CREATEQB:
 				
@@ -56,7 +57,7 @@ int main() {
 					scanf("%s", filename);
 					getchar();
 					strcat(filename, ".qb");
-					strcpy(filename, strcat(dir, filename));
+					strcpy(filename, strcat(dirqb, filename));
 					storeQB(&qb, filename, 0);
 				}
 
@@ -92,12 +93,14 @@ int main() {
 					scanf("%s", filename);
 					getchar();
 					if(ch == 'Y') {
-						strcat(filename, ".qb");
-						strcpy(filename, strcat(dir, filename));
+						strcat(filename, ".quiz");
+						strcpy(filename, strcat(dirqz, filename));
 						storeQB(quiz, filename, 1);
 					}
 				}
 				break;
+			case VIEWQZ:
+				
 		}
 	}
 	return 0;
