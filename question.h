@@ -81,7 +81,7 @@ typedef struct QuizSet {
 void init(QuestionBank* qb);
 void initquizset(QuizSet* qz);
 void addQuestion(QuestionBank* qb, int* n);
-void storeQB(QuestionBank* qb, char* file);
+void storeQB(QuestionBank* qb, char* file, int storemarks);
 void addOption(option_ptr* s);
 void readQBstruct(QuestionBank* qb, int showMarks/*boolean flag*/);
 void readQB(char* file_name);

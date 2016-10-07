@@ -37,7 +37,7 @@ int main() {
 					printheader("Quizzy");
 					printmiddle("Creation of Question Bank");
 					addQuestion(&qb, &id);
-					getchar();/*to remove '\n'*/
+				
 					printf("\nDo u want to enter more questions (y | n) :\n");
 					scanf("%c", &more);
 					getchar();
@@ -45,6 +45,7 @@ int main() {
 				printheader("Quizzy");
 				printf("Your Question Bank :\n");
 				readQBstruct(&qb, 0);
+				printf("\n(Press ENTER key)\n");
 				getchar();
 				printf("Save the question bank(Y | N):\n");
 				ch = getchar();
@@ -56,7 +57,7 @@ int main() {
 					getchar();
 					strcat(filename, ".qb");
 					strcpy(filename, strcat(dir, filename));
-					storeQB(&qb, filename);
+					storeQB(&qb, filename, 0);
 				}
 
 				break;
@@ -87,6 +88,14 @@ int main() {
 					printf("Save the question bank(Y | N):\n");
 					ch = getchar();
 					getchar();
+					printf("Enter the file name :\n");
+					scanf("%s", filename);
+					getchar();
+					if(ch == 'Y') {
+						strcat(filename, ".qb");
+						strcpy(filename, strcat(dir, filename));
+						storeQB(quiz, filename, 1);
+					}
 				}
 				break;
 		}

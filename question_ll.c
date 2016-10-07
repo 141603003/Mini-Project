@@ -60,7 +60,8 @@ void addQuestion(QuestionBank* qb, int* id) {
 			}
 			else {/*for MCQ*/
 				printf("\nCorrect option(label) : \n");
-				scanf("%c", &((node->q).ques.mcq.ans));/*Answer*/		
+				scanf("%c", &((node->q).ques.mcq.ans));/*Answer*/
+				getchar();		
 			}
 				
 			break;
@@ -69,8 +70,9 @@ void addQuestion(QuestionBank* qb, int* id) {
 			getchar();
 			scanf("%[^\n]%*c", (node->q).ques.naq.qs.ques);/*Reading question*/
 			(node->q).ques.naq.qs.q_length = strlen((node->q).ques.naq.qs.ques);/*storing length of question*/
-			printf("Enter correct answer :\n");
+			printf("\nEnter correct answer :\n");
 			scanf("%lf", &((node->q).ques.naq.ans));
+			getchar();
 			break;
 		case _MTP:
 			printf("How many pairs:");
@@ -104,6 +106,7 @@ void addPairs(MTP* mtp) {
 	pair* p;
 	scanf("%s", str1);
 	scanf("%s", str2);
+	getchar();
 	strcpy(node->str1, str1);
 	strcpy(node->str2, str2);
 	node->next = NULL;
@@ -211,7 +214,7 @@ void readQBstruct(QuestionBank* qb, int showMarks/*boolean flag*/) {
 		
 	}	
 }
-void storeQB(QuestionBank* qb, char* file) {
+void storeQB(QuestionBank* qb, char* file, int storemarks) {/*storemarks indicate*/
 	FILE* fp = fopen(file, "w");
 	MCQ mcq;
 	MAQ maq;
@@ -224,6 +227,9 @@ void storeQB(QuestionBank* qb, char* file) {
 	if(!fp) {
 		perror("Cant open file ");
 		return;
+	}
+	if(!qb) {
+		printf("List was empty");
 	}
 	fwrite(&(qb->no_of_question), sizeof(int), 1, fp);/*no of ques*/
 	while(p != NULL) {
@@ -271,6 +277,9 @@ void storeQB(QuestionBank* qb, char* file) {
 				}
 				break;
 						
+		}
+		if(storemarks == 1) {
+			fwrite(&(p->marks), sizeof(int), 1, fp);
 		}
 		p = p->next;
 	}

@@ -72,6 +72,7 @@ int loginprint() {
 	printf("%-10s%20s\n\n", "2. STUDENT", "[2]");
 	printf("Please Enter your choice code : ");
 	scanf("%c", &choice);
+	getchar();/*to remove enter*/
 	if(choice == 27) {
 		system("clear");
 		exit(0);
@@ -108,13 +109,11 @@ void validator() {
 void validation(int l) {
 	FILE* fp = NULL;
 	char mis[20];
-	if(l == ADMIN) {
-		validator();
-	}
-	else {
-		getchar();
+	if(l == STUDENT) {
+		
 		printf("Enter your MISID : ");
 		scanf("%s", mis);
+		getchar();
 		fp = fopen(mis,"a");
 		if(!fp) {
 			printf("Problem with file");
@@ -138,6 +137,7 @@ int printmenu(int l) {
 		printf("%-40s%5s\n\n","6. Import a QuestionBank", "[6]");
 		printf("Enter your choice:");
 		scanf("%c", &choice);
+		printf("got %c\n", choice);
 		getchar();
 		if(choice == 27) {
 			system("clear");
@@ -191,6 +191,7 @@ void availablefilename(){
         }
 	if(i == 1)
 		printf("No Question Bank available yet........\n");
+	printf("\n(Press Enter key)\n");
 	getchar();
 	closedir(dp);
 }
