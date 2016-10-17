@@ -3,15 +3,21 @@
 #include <string.h>
 #include "question.h"
 #include "print.h"
+void usage();	
 
-
-int main() {
+int main(int arc, char* argv[]) {
 	int i = 1, choice, select;
 	char filename[20], *file, dirqb[100], dirqz[100], more;
 	int id = 0;
 	char ch;
 	QuestionBank qb;
 	QuizSet quizset;
+	if(arc > 1) {
+		if(strcmp(argv[1],"-h") == 0) {
+			usage();
+			return 0;
+		}
+	}
 	initquizset(&quizset);
 	Quiz* quiz = &(quizset.quiz);
 	initial();
@@ -96,13 +102,30 @@ int main() {
 						strcat(filename, ".quiz");
 						strcpy(filename, strcat(dirqz, filename));
 						storeQB(quiz, filename, 1);
-						storeQuizInfo()
+						//storeQuizInfo()
 					}
 				}
 				break;
 			case VIEWQZ:
+				break;
 				
 		}
 	}
 	return 0;
+}
+/*Prints usage with the help  of quizzy.help file*/
+void usage() {
+	FILE* fp;
+	char ch;
+	fp = fopen("quizzy.help", "r");
+	if(fp == NULL) {
+		printf("Help file is missing\n");
+		return;
+	}
+	
+	while((fread(&ch, sizeof(char), 1, fp)) != 0) {
+		printf("%c", ch);
+	}
+	
+	fclose(fp);	
 }

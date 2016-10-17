@@ -362,6 +362,7 @@ void readQB(char* file_name) {
 		}
 		printf("\n\n");
 	}
+	printf("Press ENTER\n");
 	getchar();
 	fclose(fp);
 }
