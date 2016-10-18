@@ -20,7 +20,7 @@ void addQuestion(QuestionBank* qb, int* id) {
 	char temp, ch;
 	question_ll* node = (question_ll*)malloc(sizeof(question_ll));
 	printf("Q%d.\n", (*id) + 1);
-	printf("Enter the type of Question: %45s","[MCQ 1] [MAQ 2] [NAQ 3] [MTP 4]  \n");
+	printf("Enter the choice code for the type of Question:\n");
 	scanf("%d", &t);
 	(node->q).type_of_ques = t;/*Question type*/
 	(node->q).id = ++(*id);/*Question ID*/
@@ -77,10 +77,14 @@ void addQuestion(QuestionBank* qb, int* id) {
 		case _MTP:
 			printf("How many pairs:");
 			scanf("%d", &no);
+			getchar();
+			if(no != 0){
+				printf("\nNOTE : Enter the option + ENTER followed by corresponding answer\n\n");
+			}
 			(node->q).ques.mtp.no_of_pairs = no;
 			(node->q).ques.mtp.pairs = NULL;
 			for(i = 0; i < no; i++) {
-				printf("%c:", (i+1+64));
+				printf("Pair %c :", (i+1+64));
 				addPairs(&((node->q).ques.mtp));			
 			}
 			break;
@@ -104,8 +108,10 @@ void addPairs(MTP* mtp) {
 	char str1[20], str2[20];
 	pair* node = malloc(sizeof(pair));
 	pair* p;
-	scanf("%s", str1);
-	scanf("%s", str2);
+	scanf("%[^\n]s", str1);
+	getchar();
+	printf("Answer :");
+	scanf("%[^\n]s", str2);
 	getchar();
 	strcpy(node->str1, str1);
 	strcpy(node->str2, str2);
@@ -201,7 +207,7 @@ void readQBstruct(QuestionBank* qb, int showMarks/*boolean flag*/) {
 				pair = mtp.pairs;
 				
 				while(pair != NULL) {
-					printf("%s\t%s\n", pair->str1, pair->str2);
+					printf("%-25s\t%-25s\n", pair->str1, pair->str2);
 					pair = pair->next;				
 				}
 				printf("\n");
@@ -284,6 +290,7 @@ void storeQB(QuestionBank* qb, char* file, int storemarks) {/*storemarks indicat
 		p = p->next;
 	}
 	printf("Written successfully to %s\n", file);
+	printf("Press ENTER\n");
 	getchar();
 	fclose(fp);
 	
@@ -295,13 +302,12 @@ void readQB(char* file_name) {
 	questionString qs;
 	NAQ naq;
 	char str[20], ch;
-	printf("%s\n", file_name);
 	if(!fp) {
 		perror("Cant open file ");
 		return;
 	}
 	fread(&i, sizeof(int), 1, fp);/*no of ques*/
-	printf("%s contains %d number of questions\n\n", file_name, i);
+	printf("%s contains %d questions\n\n", file_name, i);
 	while(fread(&i, sizeof(int), 1, fp) != 0) {/*question ID*/
 		printf("Q%d. ", i);
 		fread(&i, sizeof(int), 1, fp);/*ques type*/
@@ -422,7 +428,8 @@ void readQBQuiz(QuizSet* quizset, char* file_name) {
 		return;
 	}
 	fread(&i, sizeof(int), 1, fp);/*no of ques*/
-	printf("%s contains %d number of questions\n\n", file_name, i);
+	printf("%s contains %d questions\n\n", file_name, i);
+	printf("Press ENTER\n");
 	getchar();
 	while(fread(&i, sizeof(int), 1, fp)) {/*question ID*/
 		printheader("Quizzy");
@@ -532,8 +539,9 @@ void readQBQuiz(QuizSet* quizset, char* file_name) {
 	}
 	quizset->total_marks = totalmarks;
 	if(totalmarks) {
-		printf("Allocate Max Time for this quiz:\n(minutes)");
+		printf("\nAllocate Max Time for this quiz:\n(minutes)");
 		scanf("%d", &(quizset->time));
+		printf("\nPress ENTER\n");
 		getchar();
 	}
 	getchar();

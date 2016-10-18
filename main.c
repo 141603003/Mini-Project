@@ -43,6 +43,14 @@ int main(int arc, char* argv[]) {
 				do {/**for new question bank*/
 					printheader("Quizzy");
 					printmiddle("Creation of Question Bank");
+					printf("\n");
+					printmiddle("     Type of question                Choice of code");
+					printf("\n");
+					printmiddle("Multiple Choice Question  (MCQ)                [1]");
+					printmiddle("Multiple Answer Question  (MAQ)                [2]");
+					printmiddle("Numerical Answer Question (NAQ)                [3]");
+					printmiddle("Match the pair            (MTP)                [4]");
+					printf("\n");
 					addQuestion(&qb, &id);
 				
 					printf("\nDo u want to enter more questions (y | n) :\n");
@@ -91,11 +99,12 @@ int main(int arc, char* argv[]) {
 					printheader("Quizzy");
 					printf("Your Quiz :\n");
 					readQBstruct(quiz, 1);/*show marks*/
+					printf("Press ENTER\n");
 					getchar();
 					printf("Save the question bank(Y | N):\n");
 					ch = getchar();
 					getchar();
-					printf("Enter the file name :\n");
+					printf("Enter a name for the quiz :\n");
 					scanf("%s", filename);
 					getchar();
 					if(ch == 'Y') {

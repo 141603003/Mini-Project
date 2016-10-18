@@ -207,7 +207,7 @@ char* getfilename() {
 	char dir[100] = "./QuestionBank/";
 	availablefilename();
 	if(filefound != 0) {
-		printf("Enter the question Bank name :\n");
+		printf("Enter the question Bank name (without .qb extension) :\n");
 		scanf("%s",file);
 		getchar();
 		strcat(file, ".qb");
