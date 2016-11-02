@@ -1,0 +1,33 @@
+Usage: ./project [OPTION] [FILE]
+This program named as "Quizzy" is used for creating and loading of question bank and  quiz and also running a quiz.
+NOTE: [ ] indicates optional. < > indicates parameters.
+
+**OPTION**			**PURPOSE**
+
+  <no option>			: Switches to menu based mode of Quizzy.
+
+  -cq [<qb_name>]		: provides interface for creating a quiz set using question bank "qb_name". 
+
+  -cqb [<name>]			: provides interface for creating question bank and stores question bank as <name>. <name> is optional.
+
+  -h    			: for help.
+
+  -i <xml_filename>		: imports the question bank from  xml file <xml_filename>. xml_filename is mandatory and must be in 
+                                  Moodle XML Format. xml_filename must be a path.
+
+  -p <ID>			: to view pending quiz for user with identity <ID>. ID is identifier you give while running a quiz.
+
+  -r <ID>			: to resume pending quiz for user with identity <ID>.
+
+  -run [<quiz_name>]		: runs the quiz with name <quiz_name>. Not to be use with -vq(as login credentials vary).
+
+  -vq [<quiz1>] [<quiz2>]....	: to view quiz set in current directory. Note: "quiz1, quiz2, ..." is optional. Maximum 10 quiz set can be
+                                  viewed at time.
+
+  -vqb [<qb1>] [<qb2>]...	: to view available question banks <qb1> <qb2> .. in current directory. Note: "qb1, qb2, ..." is optional.
+                                  Maximum 10 question banks can be viewed at a time.
+
+  -x [<source>] [<target>]	: exports a question bank to Moodle XML Format. <source> specifies the questionbank name. <target>
+                                  (without .xml extension) specifies the xml file in which the question bank will be exported. <source> and
+                                  <target> are optional.
+

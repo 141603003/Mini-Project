@@ -1,0 +1,30 @@
+NOTE: for testing :
+	1) Remove any directory if present in project folder.
+	2) Extract "QuestionBank.tar.gz", "Quiz.tar.gz" and "Info.tar.gz".<==These contain files for testing.
+	3) bash test_cases command on terminal
+
+===========================================================================================================================================
+The "test_cases" file conains various test cases for testing the program. Some files and folder submitted are necessary for testing, like "moodle4.xml", "Question Bank.tar.gz" folder, etc.
+The test cases are divided into sets, which are separated by blank line:
+
+Set 1: compiles and shows help option
+
+Set 2: Positive test cases.
+
+Set 3: options without parameters
+
+Set 4: Negative test cases
+
+Set 5: options with multiple parameter and wrong parameter handling
+
+Set 6: Multiple options at same time and with some extra parameters
+
+Set 7: quizzy in interactive mode.
+
+Set 8: Deletes all created folders, question, quiz, etc. and recompiles the project.
+
+Set 9: Again runs the options, but this time not a single question bank, quiz is available.
+
+				~~~THANK YOU~~~
+
+

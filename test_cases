@@ -1,0 +1,67 @@
+make
+./project -h
+
+./project -cqb MyQuestionBank
+./project -vqb MyQuestionBank C\ Programming\ QsBank
+./project -cq  MyQuestionBank
+./project -cqvbq MyQuestionBank C\ Programming\ QsBank
+./project -vq C\ Programming
+./project -x MyQuestionBank MyQB
+./project -i ./Export_Files/MyQB.xml
+./project  -run C\ Programming
+./project  -p 123
+./project  -r 123
+
+./project -cqb 
+./project -vqb
+./project -cq
+./project -vq
+./project -x
+./project -i ./Export_Files/MyQB.xml
+./project  -run
+./project  -p 123
+./project  -r 123
+
+./project -wsd -ewdf -ffdf -fgbgbg
+./project -vqb qwerty12345
+./project -vqb 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+./project -cq qwerty12345
+./project -vq qwerty12345 12424io494i94o9r
+./project -vq 1 2 3 4 5 6 7 8 9 10 11 12 12 123
+./project -x 7hr8sa894ds994
+./project -i 
+./project -i 98rwislkasdwkdsj0
+./project  -run h7g8i8o
+./project  -p 
+./project -p 1md,4i8jmdi84j8
+./project  -r
+./project -r 3dsouk,rw94k9us
+
+./project -cqb MyQb1 90 799 
+./project -vqb MyQb1 MyQuestionBank C\ Programming\ QsBank
+./project -cq MyQuestionBank 122 576899
+./project -vq C\ Programming Sports
+./project -x MyQuestionBank
+./project -x MyQuestionBank MyQB1
+./project -i ./Export_Files/MyQB1.xml
+./project -i moodle4.xml
+./project  -run 
+./project  -p 123 789
+./project  -r 123 90--
+
+./project -cqb MynewQB -vbq MynewQB MyQuestionBank MyQb1 -cq MyQuestionBank -vq -x MyQuestionBank MyQB2 -i ./Export_Files/MyQB2.xml -run -p 123 -r 123
+./project -cqb MynewQB 123 -vbq MynewQB MyQuestionBank MyQb1 1 2 3 4 5 6 7 8 9 10 -cq MyQuestionBank 1234 -vq -x MyQuestionBank MyQB2 123 445 56 -i ./Export_Files/MyQB2.xml 3455 -run 1234 -p 123 qwwe  -r 123 2345
+
+./project
+
+make clean
+make
+
+./project -vqb MyQuestionBank C\ Programming\ QsBank
+./project -cq  MyQuestionBank
+./project -vq C\ Programming
+./project -x MyQuestionBank MyQB
+./project -i ./Export_Files/MyQB.xml
+./project  -run C\ Programming
+./project  -p 123
+./project  -r 123
